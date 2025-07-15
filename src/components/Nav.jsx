@@ -7,7 +7,7 @@ const Nav = () => {
 
 <nav class="navbar navbar-expand-lg bg-info">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" to="#">
       <img src="https://thumbs.dreamstime.com/b/student-welfare-logo-vector-illustration-art-design-334447298.jpg" alt="Logo" width="50" height="30" class="d-inline-block align-text-right"/>
     </a>
 

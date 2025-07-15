@@ -1,7 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Nav from './Nav'
+import axios from 'axios'
 
 const Add = () => {
+    const[inputData,changeinputData]= useState(
+        {
+name: "",
+roll_number: "",
+admission_number: "",
+college: ""
+}
+    )
+    const inputHandler=(event)=>{
+        changeinputData({...inputData,[event.target.name]:event.target.value})
+    }
+    const readValues=()=>{
+        console.log(inputData)
+    }
+    axios.post("http://18.144.111.41/student_api.php").then(
+        (response)=>{
+            alert("successfully added")
+            
+        }
+    ).catch(
+        ()=>{alert("something went")}
+    )
   return (
     <div>
         <Nav />
@@ -9,43 +32,36 @@ const Add = () => {
 <div className="container">
     <div className="row">
         <div className="col col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-<div className="row g-3 p-5">
+<div className="row g-3 p-4">
+    
     <div className="col col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-
 <label  className="form-label">Name</label>
-<input type="text" className="form-control" />
-
+<input type="text" className="form-control" name='name' value={inputData.name} onChange={inputHandler} />
+</div>
     </div>
     <div className="col col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
 
 <label className="form-label">Roll No</label>
-<input type="text" className="form-control" />
+<input type="text" className="form-control" name='roll_number' value={inputData.roll_number}  onChange={inputHandler}/>
 
     </div>
       <div className="col col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
 
 <label className="form-label">Adms. No</label>
-<input type="text" className="form-control" />
+<input type="text" className="form-control" name='admission_number' value={inputData.admission_number}  onChange={inputHandler} />
 
     </div>
     <div className="col col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
 
 <label  className="form-label">College</label>
-<textarea name="" id="" className="form-control"></textarea>
+<input type=""  className="form-control" name='college' value={inputData.college}  onChange={inputHandler}></input>
 
 
     </div>
-    <div className="col col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-
-<label  className="form-label">Phone</label>
-<input type="text" className="form-control" />
-
-
-
-    </div>
+    
     <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                                <div class="d-grid gap-2">
-                                    <button class="btn btn-success" type="button">Submit</button>
+         <div class="d-grid gap-2">
+            <button class="btn btn-success" type="button" onClick={readValues}>Submit</button>
 
 </div>
     </div>
@@ -56,7 +72,7 @@ const Add = () => {
 </div>
 
 
-    </div>
+    
   )
 }
 
