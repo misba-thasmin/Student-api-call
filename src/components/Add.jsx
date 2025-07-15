@@ -17,22 +17,22 @@ college: ""
     const readValues=()=>{
         console.log(inputData)
     }
-    axios.post("http://18.144.111.41/student_api.php").then(
+    axios.post("http://18.144.111.41/student_api.php",inputData).then(
         (response)=>{
             alert("successfully added")
             
         }
-    ).catch(
-        ()=>{alert("something went")}
-    )
+    ).catch( 
+        ()=>{alert("something wrong")})
   return (
     <div>
         <Nav />
-
+<div class="p-3 mb-2 bg-danger-subtle text-danger-emphasis">
 <div className="container">
     <div className="row">
         <div className="col col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-<div className="row g-3 p-4">
+            
+<div className="row g-3 ">
     
     <div className="col col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
 <label  className="form-label">Name</label>
@@ -60,7 +60,7 @@ college: ""
     </div>
     
     <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-         <div class="d-grid gap-2">
+        <div class="d-grid gap-2">
             <button class="btn btn-success" type="button" onClick={readValues}>Submit</button>
 
 </div>
@@ -70,7 +70,7 @@ college: ""
         </div>
     </div>
 </div>
-
+</div>
 
     
   )
